@@ -1,0 +1,16 @@
+{
+    "gui.blocklyText.berttext.extensionName": "Word Embedding",
+    "gui.blocklyText.berttext.init": "Initialize module",
+    "gui.blocklyText.berttext.group.basic": "Initialization",
+    "gui.blocklyText.berttext.readcap1": "Set [CLS] recognition result category [CLASS]",
+    "gui.blocklyText.berttext.group.config": "Configuration",
+    "gui.blocklyText.berttext.readcapq": "Use tool at path [PATH] to convert words in [CLS] to word vectors",
+    "gui.blocklyText.berttext.group.processing": "Word Vector Processing",
+    "gui.blocklyText.berttext.readcap1a1": "Get word vectors of all words",
+    "gui.blocklyText.berttext.group.retrieval": "Data Retrieval",
+    "gui.blocklyText.berttext.readcap1a": "Get word vector of the [NUM]th word",
+    "gui.blocklyText.berttext.readcap1b": "Get visual display of all word vectors [PATH]",
+    "gui.blocklyText.berttext.group.visualization": "Visualization",
+    "gui.blocklyText.berttext.readcap2": "Calculate similarity between all word vectors and output",
+    "gui.blocklyText.berttext.group.analysis": "Analysis"
+}

@@ -1,0 +1,19 @@
+{
+    "id": "berttext",
+    "version": "0.0.4",
+    "name": {
+        "zh-cn": "词向量",
+        "en": "Word Embedding"
+    },
+    "description": {
+        "zh-cn": "这是一个词向量工具。",
+        "en": "This is a word embedding tool."
+    },
+    "author": "Nick",
+    "cover": "cover.png",
+    "main": "main.js",
+    "mode": "python-block",
+    "isDevice": false,
+    "compatibilityId": "nick-berttext-thirdex",
+    "sku": ""
+}
