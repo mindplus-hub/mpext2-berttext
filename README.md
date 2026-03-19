@@ -1,132 +1,132 @@
-# 词向量扩展库
-![词向量主视图](extension/public/cover.png)
+# Word Embedding Extension
+![Word Vector Main View](extension/public/cover.png)
 
-## 简介
-用于在 Mind+ Python 模式下进行词向量（Word Embedding）处理的扩展库。本扩展基于 BERT 模型，可以将文本词汇转换为高维向量表示，支持词向量可视化和相似度计算，适用于自然语言处理和人工智能教学场景。
+## Introduction
+An extension library for word embedding (Word Embedding) processing in Mind+ Python mode. This extension is based on the BERT model and can convert text vocabulary into high-dimensional vector representations, supporting word vector visualization and similarity calculation, suitable for natural language processing and AI teaching scenarios.
 
-- 扩展 ID：berttext
-- 版本：0.0.4
-- 作者：Nick
-- 模式：Python 积木模式（python-block）
+- Extension ID: berttext
+- Version: 0.0.4
+- Author: Nick
+- Mode: Python Block Mode (python-block)
 
-## 版本更新记录
+## Version Update History
 
-| 版本 | 更新日期 | 更新内容 | 
+| Version | Update Date | Update Content | 
 | --- | --- | --- | 
-| 0.0.4 | 2026-03-19 | Mind+ V1 到 V2 适配 | 
+| 0.0.4 | 2026-03-19 | Mind+ V1 to V2 adaptation | 
 
 
-## 适用硬件
-| 设备 | 是否支持 |
+## Compatible Hardware
+| Device | Supported |
 | --- | --- |
-| 电脑（Windows/macOS/Linux） | ✓ |
-| UNIHIKER 行空板 | ✓ |
-| 树莓派 | ✓ |
+| Computer (Windows/macOS/Linux) | ✓ |
+| UNIHIKER Board | ✓ |
+| Raspberry Pi | ✓ |
 
-> 本扩展为纯软件扩展，不需要外接硬件传感器，适用于支持 Python 环境的设备。
+> This extension is a pure software extension that does not require external hardware sensors and is suitable for devices that support Python environment.
 
-## 功能概览
-提供以下积木能力：
-| opcode | 能力说明 |
+## Feature Overview
+Provides the following block capabilities:
+| opcode | Description |
 | --- | --- |
-| init | 初始化词向量模块 |
-| readcap1 | 设置词汇列表和识别类别 |
-| readcapq | 使用指定路径的模型将词汇转为词向量 |
-| readcap1a1 | 获取所有词的词向量 |
-| readcap1a | 获取指定位置的词向量 |
-| readcap1b | 生成词向量的可视化显示文件 |
-| readcap2 | 计算所有词向量之间的相似度 |
+| init | Initialize word vector module |
+| readcap1 | Set vocabulary list and recognition categories |
+| readcapq | Convert words to word vectors using model from specified path |
+| readcap1a1 | Get word vectors for all words |
+| readcap1a | Get word vector at specified position |
+| readcap1b | Generate visualization file for word vectors |
+| readcap2 | Calculate similarity between all word vectors |
 
-## 依赖库说明
-本扩展依赖以下 Python 库：
-- **xedu-python**：XEdu 人工智能教育库
-- **plotly**：交互式可视化库
-- **scikit-learn**：机器学习库（用于 PCA 降维）
-- **onnxruntime**：ONNX 模型推理引擎
+## Dependency Libraries
+This extension depends on the following Python libraries:
+- **xedu-python**: XEdu AI education library
+- **plotly**: Interactive visualization library
+- **scikit-learn**: Machine learning library (for PCA dimensionality reduction)
+- **onnxruntime**: ONNX model inference engine
 
-这些库在首次使用扩展时会自动安装。
+These libraries will be automatically installed when using the extension for the first time.
 
-## 积木说明
+## Block Description
 
-### 初始化模块
-- **初始化模块**：在使用词向量功能前必须先调用，用于初始化模块环境。
+### Initialization Module
+- **Initialize Module**: Must be called before using word vector features to initialize the module environment.
 
-### 配置类
-- **设置 [变量名] 识别结果类别 [词汇列表]**：设置要处理的词汇列表。
-  - `变量名`：存储词汇列表的变量名（如 words）
-  - `词汇列表`：用逗号分隔的词汇，如 `'king','queen','apple'`
+### Configuration Class
+- **Set [variable name] recognition result categories [vocabulary list]**: Set the vocabulary list to be processed.
+  - `variable name`: Variable name to store the vocabulary list (e.g., words)
+  - `vocabulary list`: Comma-separated words, e.g., `'king','queen','apple'`
 
-- **使用路径为 [模型路径] 的工具将 [变量名] 中的词汇转为词向量**：使用 BERT 模型将词汇转换为向量。
-  - `模型路径`：BERT 模型文件所在目录（如 checkpoint）
-  - `变量名`：之前设置的词汇列表变量名
+- **Use tool at path [model path] to convert words in [variable name] to word vectors**: Use BERT model to convert words to vectors.
+  - `model path`: Directory where BERT model files are located (e.g., checkpoint)
+  - `variable name`: Previously set vocabulary list variable name
 
-### 数据获取类
-- **获取全部词的词向量**：返回所有词汇的词向量矩阵。
-- **获取第 [序号] 个的词向量**：返回指定位置词汇的词向量（序号从 1 开始）。
+### Data Acquisition Class
+- **Get word vectors for all words**: Returns the word vector matrix for all words.
+- **Get word vector at position [index]**: Returns the word vector at the specified position (index starts from 1).
 
-### 可视化类
-- **获取全部词向量的可视化显示 [文件路径]**：生成词向量的 3D 可视化 HTML 文件。
-  - `文件路径`：输出的 HTML 文件名（如 word_vectors.html）
+### Visualization Class
+- **Get visualization display of all word vectors [file path]**: Generate a 3D visualization HTML file of word vectors.
+  - `file path`: Output HTML file name (e.g., word_vectors.html)
 
-### 分析类
-- **计算全部词向量之间的相似度并输出**：计算并返回词向量之间的余弦相似度矩阵。
+### Analysis Class
+- **Calculate and output similarity between all word vectors**: Calculate and return the cosine similarity matrix between word vectors.
 
-## 积木图
-![词向量积木图](assets/block.png)
+## Block Diagram
+![Word Vector Block Diagram](assets/block.png)
 
-## 教程示例
-以电脑为例，演示如何使用词向量扩展：
+## Tutorial Examples
+Using a computer as an example to demonstrate how to use the word vector extension:
 
-### 第一步：导入文本嵌入模型
-在将词汇转成词向量时,需要用到embedding_text.onnx模型。有以下几种使用方式:
+### Step 1: Import Text Embedding Model
+When converting words to word vectors, the embedding_text.onnx model is required. There are the following usage methods:
 
-**方式一:使用绝对路径(推荐)**
-将模型下载到本地后,使用绝对路径指定模型位置,例如 `D:\checkpoint` 或 `C:\AI\checkpoint`,避免将大文件放入项目中。这种方式只需下载一次,后续使用非常方便。
+**Method 1: Using Absolute Path (Recommended)**
+After downloading the model locally, use an absolute path to specify the model location, such as `D:\checkpoint` or `C:\AI\checkpoint`, to avoid putting large files in the project. This method only requires downloading once and is very convenient for subsequent use.
 ![](assets/PixPin_2026-03-19_13-35-29.png)
 
-**方式二:自动下载**
-在联网条件下直接运行图形化指令,程序如果没有在电脑本地检测到模型,会自动从云端下载。
+**Method 2: Automatic Download**
+When connected to the internet, run the graphical instructions directly. If the program does not detect the model locally on the computer, it will automatically download from the cloud.
 
 ![](assets/PixPin_2026-03-19_12-12-50.png)
 
-> **注意**：不建议将 checkpoint 模型文件夹放入项目资源文件中,因为模型文件较大,会导致项目保存和加载异常。
+> **Note**: It is not recommended to put the checkpoint model folder into the project resource files, as the model files are large and will cause abnormal project saving and loading.
 
-### 第二步：词转词向量并打印
+### Step 2: Convert Words to Word Vectors and Print
 
-可以使用以下代码，将词汇表中的每一个词转成词向量并打印输出。获取全部词向量的输出是一个二维数组，里面依次放了每一个词向量，每一个词向量是一个长度为512的一维数组，这是因为文本嵌入模型从词中提取了512个特征并转成了数字化输出。
+You can use the following code to convert each word in the vocabulary to a word vector and print the output. The output of getting all word vectors is a two-dimensional array, which contains each word vector in sequence. Each word vector is a one-dimensional array of length 512, because the text embedding model extracts 512 features from words and converts them into numerical output.
 
-![](assets/PixPin_2026-03-19_12-14-41.png)
+![](assets/PixPin_2026-03-19_13-11-18.png)
 
-### 第三步，词向量可视化观察
+### Step 3: Word Vector Visualization Observation
 
-由于词向量是一个数组，比较抽象，使用以下程序，可以将转成的词向量转成三维坐标系的一个点，帮助直观的观察各个词向量之间的关系
+Since word vectors are arrays and relatively abstract, using the following program, you can convert the word vectors into points in a three-dimensional coordinate system, which helps to intuitively observe the relationship between word vectors.
 
 ![](assets/PixPin_2026-03-19_13-36-32.png)
 
-导出html文件并打开，可以观察词向量在三维空间坐标系的位置，这个空间可以理解为是语义空间。这个html文档可以用鼠标进行互动，在语义空间中词义相似的词向量，分布位置接近
+Export and open the HTML file to observe the position of word vectors in the three-dimensional space coordinate system. This space can be understood as semantic space. This HTML document can be interacted with using the mouse. In the semantic space, word vectors with similar meanings are distributed close to each other.
 
 ![](assets/PixPin_2026-03-19_13-13-13.png)
 
-### 第四步，向量之间的相似度计算
+### Step 4: Similarity Calculation Between Vectors
 
-使用以下指令计算词向量之间的余弦相似度，余弦相似度越近，词义相似度越高
+Use the following instructions to calculate the cosine similarity between word vectors. The closer the cosine similarity, the higher the semantic similarity.
 
 ![](assets/PixPin_2026-03-19_13-37-34.png)
 
 
 
-## 常见问题
+## FAQ
 
-**Q: 提示找不到模型文件？**
-- A: 请确保 checkpoint 目录存在且包含 BERT 模型文件。可从 XEdu 官网下载预训练模型。
+**Q: Prompt that model file cannot be found?**
+- A: Please ensure that the checkpoint directory exists and contains BERT model files. Pre-trained models can be downloaded from the XEdu official website.
 
-**Q: 词向量计算很慢？**
-- A: BERT 模型推理需要一定计算资源，建议在性能较好的电脑上运行，或减少词汇数量。
+**Q: Word vector calculation is slow?**
+- A: BERT model inference requires certain computing resources. It is recommended to run on a computer with better performance or reduce the number of words.
 
-**Q: 可视化文件打不开？**
-- A: 请使用 Chrome、Edge、Firefox 等现代浏览器打开 HTML 文件。
+**Q: Visualization file cannot be opened?**
+- A: Please use modern browsers such as Chrome, Edge, Firefox to open HTML files.
 
-**Q: 相似度结果不符合预期？**
-- A: 词向量的语义相似度取决于模型训练数据，建议使用常见词汇进行测试。
+**Q: Similarity results do not meet expectations?**
+- A: The semantic similarity of word vectors depends on the model training data. It is recommended to use common words for testing.
 
 
